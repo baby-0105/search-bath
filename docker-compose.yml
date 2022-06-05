@@ -1,0 +1,52 @@
+version: "3.3"
+
+services:
+  vue:
+    build:
+      context: ./docker/frontend
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    restart: always
+    tty: true
+    volumes:
+      - ./frontend/app:/app
+    networks:
+      - local-net
+
+  mysql:
+    build: ./docker/mysql
+    restart: always
+    tty: true
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker/mysql/initdb.d:/docker-entrypoint-initdb.d
+      - ./docker/mysql/conf.d:/etc/mysql/conf.d
+      - ./log/mysql:/var/log/mysql
+    networks:
+      - local-net
+    env_file:
+      - .env
+
+  fastapi:
+    links:
+      - mysql
+    build: ./docker/api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/usr/src/server
+    networks:
+      - local-net
+    env_file:
+      - .env
+
+networks:
+  local-net:
+    driver: bridge
