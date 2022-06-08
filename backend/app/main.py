@@ -23,7 +23,6 @@ def index2():
     return {"message": "fugafuga"}
 
 
-# Dockerfileからuvicorn(FastAPIサーバー）を起動する
 if __name__ == "__main__":
     uvicorn.run(
         app="main:app",
