@@ -1,3 +1,3 @@
-INSERT INTO user (name, age) VALUES ("太郎", 15);
-INSERT INTO user (name, age) VALUES ("次郎", 18);
-INSERT INTO user (name, age) VALUES ("花子", 20);
+INSERT INTO user (name, age) VALUES ("炭治郎", 12);
+INSERT INTO user (name, age) VALUES ("禰󠄀豆子", 10);
+INSERT INTO user (name, age) VALUES ("善逸", 12);

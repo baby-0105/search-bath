@@ -1,7 +1,5 @@
 <template>
-  <div class="hello">
-    <h1>Hello World {{ message }}</h1>
-  </div>
+  <h1>お風呂 {{ message }}</h1>
 </template>
 
 <script>
@@ -16,7 +14,7 @@ export default {
       }
     },
     mounted() {
-      this.get_hoge()
+      this.getContents()
         .then((response) => {
           this.message = response.data.message
         })
@@ -25,15 +23,9 @@ export default {
         })
     },
     methods: {
-      get_hoge() {
+      getContents() {
         return axios.get('api/hoge')
       }
     },
 }
 </script>
-
-<style scoped>
-h1 {
-  color: #42b983;
-}
-</style>
