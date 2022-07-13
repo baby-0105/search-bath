@@ -3,30 +3,28 @@
 </template>
 
 <script>
-import { axios } from '/app/plugins/axios'
-
 export default {
-    components: {
-    },
-    data() {
-      return {
-        message : ''
-      }
-    },
-    mounted() {
-      this.getContents()
-        .then((response) => {
-          this.message = response.data.message
-        })
-        .catch((e) => {
-          console.log('e:', e);
-        })
-    },
-    methods: {
-      getContents() {
-        return axios.get('api/hoge')
-      }
-    },
+  components: {
+  },
+  data() {
+    return {
+      message : ''
+    }
+  },
+  mounted() {
+    this.getContents()
+    .then((response) => {
+      this.message = response.data.message
+    })
+    .catch((e) => {
+      console.log('e:', e);
+    })
+  },
+  methods: {
+    getContents() {
+      return this.$http.get('api/hoge')
+    }
+  },
 }
 </script>
 

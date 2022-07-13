@@ -10,10 +10,8 @@ export default {
     })
 
     app.config.globalProperties.$http.interceptors.response.use(response => {
-
       return response;
     }, function(error) {
-
       return Promise.reject(error);
     })
 
