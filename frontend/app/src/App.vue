@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class="">近くのお風呂</div>
+    <div class="text-3xl font-bold underline">チカクノオフロ</div>
     <img src="" alt="虫眼鏡">
   </header>
   <HelloWorld></HelloWorld>
@@ -16,3 +16,7 @@ export default {
   }
 }
 </script>
+
+<style scoped lang="sass">
+
+</style>
