@@ -1,18 +1,18 @@
 <template>
-  <header>
-    <div class="text-3xl font-bold underline">チカクノオフロ</div>
-    <img src="" alt="虫眼鏡">
+  <header class="flex justify-between p-4">
+    <div class="">ちかくのおふろ</div>
+    <img class="w-6" src="./assets/img/search.svg" alt="虫眼鏡">
   </header>
-  <HelloWorld></HelloWorld>
+  <BathMap></BathMap>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BathMap from './components/BathMap.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    BathMap
   }
 }
 </script>
